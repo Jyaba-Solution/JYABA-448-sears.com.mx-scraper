@@ -14,10 +14,10 @@ NEWSPIDER_MODULE = 'sears.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'sears (+http://www.yourdomain.com)'
+USER_AGENT = 'sears (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -86,3 +86,15 @@ ROBOTSTXT_OBEY = True
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+import os
+
+data_folder = 'data'
+
+# if does not exist, create it
+if not os.path.exists(data_folder):
+    os.makedirs(data_folder)
+
+    
+FEED_FORMAT = 'csv'
+FEED_URI = f'data/{BOT_NAME}.csv'
+FEED_EXPORT_ENCODING = "utf-8-sig"
