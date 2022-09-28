@@ -55,5 +55,12 @@ class SearsSpider(scrapy.spiders.SitemapSpider):
         item['Subcategory3'] = ''
         item['Marca'] = product_json.get('data',{}).get('brand')
         item['Modelo'] = product_json.get('data',{}).get('model')
+        item['SKU'] = product_json.get('data',{}).get('sku')
+        item['UPC'] = product_json.get('data',{}).get('ean')
+        item['Item'] = product_json.get('data',{}).get('title')
+        item['Item Characteristics'] = product_json.get('data',{}).get('description')
+        yield item
+
+        breakpoint()
         
    
